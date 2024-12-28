@@ -1,0 +1,29 @@
+Data: 22.11.2024
+Lokalizacja: Parking Polanka
+Temp: -1.1 stopnia
+Wilg: 87.9%
+Ciśn: 986.37 hPa
+Błąd analizatora od temperatury: 0.7dB
+Anteny pomiarowe AINFO LB-187-20-C-SF
+Częstotliwość pomiaru 5.5 GHz
+
+
+RIS wysokość - 3.00m
+RIS pochylenie - 24.4 stopnia
+AntNadawcza wysokość - 1.89m
+Bezpośrednia Odległość RIS - AntNadawcza 5.09m 
+
+Odległości punktów pomiarowych to 25cm - 4.8 stopnia odległości kątowej
+
+TREK wysokość - 1.30m
+Odległości Treków od głównego Treka(przy RIS) - 4.24m
+
+
+WÓZEK POMIAROWY
+Wysokość TREK na wózku - 1.00m
+Wysokość anteny na wózku - 0.92m
+Bezpośrednia odległość anteny odbiorczej od RIS - 3.40m
+
+
+Punkt środkowy to 10 (z lewej 9 punktów i z prawej 9)
+
