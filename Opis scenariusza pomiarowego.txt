@@ -1,0 +1,44 @@
+Opis scenariusza pomiarowego
+Cel (lekko mi umknął). W celu przeprowadzenia badań na parkingu koło budynku mieszczącego Instytut Radiokomunikacji - Poznań, ul. Polanka 3 zestawiono następujący 
+układ pomiarowy. RIS został zamontowany na jednej z lamp znajdujących się na parkingu na wysokości 3m od ziemi, uchwyt pozwolił na odsunięcie matrycy o 30cm od lampy, została ona również
+pochylona o 24.4° w płaszczyźnie elewacji względem pozycji neutralnej. Wózek z anteną odbiorczą skierowaną w kierunku RIS został umieszczony w odległości 3m dla kąta 0° od lampy na której zamocowano matrycę, 
+w skład odbiornika wchodziły antena kierunkowa AINFO LB-187-20-C-SF zamontowana na wysokości 0.92m od ziemi, analizator widma Rohde & Schwarz FSV3000 oraz tracker GPS TREK. Antena nadawacza została umieszczona w odległości 5.27m
+od punktu mocowania matrycy na wysokości 1.89m, w skład nadajnika wchodził jeszcze generator sygnałowy Rohde & Schwarz SMM100A. W skład zestawu wchodziły jeszcze 3 trackery GPS TREK, A0 - umieszczony o 2.94m w lewo patrząc z perspektywy anteny odbiorczej, A1 - umieszczony w miejscy w którym zamocowano RIS oraz A2 - umieszczony o 2.94m w prawo od anteny odbiorczej. W wyniku pomiarów zmierzono moc odbieraną w 19 punktach. Punkt neutralny PS0 umieszczony oznaczał sytuacjęw któej odbornik został umieszczony równolegle względem matrycy. Kolejne punkty były umieszczone symetrycznie względem pozycji neutralnej w odległościach co 25cm idąc po obwodzie okręgu o promieniu 3m - sytuacja sotała przedstawiona na rysunku (przypis). Cały system sterowany był zestawem skryptów napisanych w języku Python, każdy z elementów został odpowiednio oprogramowany, a następnie utworzono główny skrypt automatyzujący cały pomiar.
+
+
+Description of the measurement scenario -  deepl
+Description of the measurement scenario
+Objective (slightly missed). In order to carry out the study in the parking lot near the building housing the Institute of Radiocommunications - Poznan, 3 Polanka Street, the following was set up. 
+measurement system. The RIS was mounted on one of the lamps in the parking lot at a height of 3m from the ground, the mount allowed the array to be moved 30cm away from the lamp, it was also
+tilted by 24.4° in the elevation plane relative to the neutral position. The carriage with the receiving antenna pointing toward the RIS was placed at a distance of 3m for an angle of 0° from the lamp on which the array was mounted, 
+the receiver consisted of an AINFO LB-187-20-C-SF directional antenna mounted at 0.92m from the ground, a Rohde & Schwarz FSV3000 spectrum analyzer and a TREK GPS tracker. The transmitter antenna was placed at a distance of 5.27m
+from the array mounting point at a height of 1.89m, the transmitter still included a Rohde & Schwarz SMM100A signal generator. It also included 3 more TREK GPS trackers, A0 - placed 2.94m to the left looking from the perspective of the receiving antenna, A1 - placed where the RIS was mounted, and A2 - placed 2.94m to the right of the receiving antenna. The measurements measured received power at 19 points. The neutral point PS0 placed meant the situation in which the receiver was placed parallel to the matrix. Subsequent points were placed symmetrically with respect to the neutral position at distances of every 25cm following the circumference of a circle with a radius of 3m - the situation is shown in the figure (footnote). The entire system was controlled by a set of scripts written in Python, each of the elements was properly programmed, and then a master script was created to automate the entire measurement.
+
+Translated with DeepL.com (free version)
+
+
+Tłuamaczenie z bota naukowo.
+Measurement Scenario Description (Scientific Translation)
+
+Objective:
+The primary objective of the study was to conduct measurements in the parking area adjacent to the building housing the Radiocommunication Institute, located at Polanka 3, Poznań. For this purpose, the following measurement setup was assembled.
+
+A Reconfigurable Intelligent Surface (RIS) was mounted on one of the parking lot lamps at a height of 3 meters above ground level. The mounting bracket allowed the RIS array to be positioned 30 cm away from the lamp and tilted by 24.4° in the elevation plane relative to its neutral position.
+
+A cart equipped with a receiving antenna oriented towards the RIS was placed 3 meters away from the lamp, corresponding to a 0° angle relative to the lamp where the RIS was mounted. The receiving setup consisted of the following components:
+
+    A directional antenna (AINFO LB-187-20-C-SF) mounted at a height of 0.92 meters above ground,
+    A spectrum analyzer (Rohde & Schwarz FSV3000),
+    A GPS tracker (TREK).
+
+The transmitting antenna was positioned 5.27 meters away from the RIS mounting point, at a height of 1.89 meters. The transmitting setup included a signal generator (Rohde & Schwarz SMM100A).
+
+Additionally, three GPS trackers (TREK) were deployed:
+
+    A0: Positioned 2.94 meters to the left from the receiving antenna's perspective,
+    A1: Located at the RIS mounting point,
+    A2: Positioned 2.94 meters to the right of the receiving antenna.
+
+Measurements were conducted at 19 specific points. The neutral point (PS0) represented the scenario where the receiver was aligned parallel to the RIS array. Subsequent measurement points were symmetrically distributed relative to the neutral position, spaced at 25 cm intervals along the circumference of a 3-meter radius circle, as illustrated in the accompanying figure (reference).
+
+The entire system was controlled using a set of Python scripts. Each component was appropriately programmed, and a central script was developed to automate the measurement process.
