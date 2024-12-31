@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import re
 
 # Ścieżka do folderu z plikami
-input_folder = r'wyniki'
+input_folder = 'wyniki'
 output_folder = r'wyniki'  # Folder na wykresy
 
 # Tworzenie folderu na wykresy, jeśli nie istnieje
@@ -47,8 +47,8 @@ def load_data(input_folder):
 # Funkcja do generowania wykresów
 def generate_plots(all_data, output_folder):
     # Ustalamy globalne minimum i maksimum dla osi Y
-    global_min = all_data['Power'].min() - 5
-    global_max = all_data['Power'].max() + 1  # Dodano 1, aby uniknąć ucinania danych
+    global_min = all_data['Power'].min() - 2
+    global_max = all_data['Power'].max() + 3  # Dodano 1, aby uniknąć ucinania danych
 
     # Grupowanie danych według numeru pliku
     grouped = all_data.groupby('FileNumber')
@@ -59,11 +59,13 @@ def generate_plots(all_data, output_folder):
     filtered_data = all_data[all_data['Index'].isin([2, 15, 16, 17, 18])]
     filtered_grouped = filtered_data.groupby('FileNumber')
     second_max_values = filtered_grouped.apply(lambda x: x.nlargest(1, 'Power')).reset_index(drop=True)
+    min_values = grouped.apply(lambda x: x.nsmallest(1, 'Power')).reset_index(drop=True)
+
 
     # Oznaczenia osi X
     custom_x_labels = [
-        -43.2, -38.4, -33.6, -28.8, -24.0, -19.2, -14.4, -9.6, -4.8, 0.0,
-        4.8, 9.6, 14.4, 19.2, 24.0, 28.8, 33.6, 38.4, 43.2
+        43.2, 38.4, 33.6, 28.8, 24.0, 19.2, 14.4, 9.6, 4.8, 0.0,
+        -4.8, -9.6, -14.4, -19.2, -24.0, -28.8, -33.6, -38.4, -43.2
     ]
     file_numbers = sorted(all_data['FileNumber'].unique())  # Unikalne numery plików
 
@@ -99,20 +101,49 @@ def generate_plots(all_data, output_folder):
             va='top',
             color='blue'
         )
+    # Minimalne wartosci
+    plt.plot(min_values['FileNumber'], min_values['Power'], marker='o', linestyle='-.', color='green', label='Min Power')
+    # Licznik do określenia numeru punktu na wykresie
+    for i, row in enumerate(min_values.iterrows(), start=1):  # start=1, żeby numerować od 1
+        _, row_data = row
+
+        # Warunek dla 3, 10 i 17 punktu
+        if i in [3, 10, 17]:
+            plt.text(
+                row_data['FileNumber'],
+                row_data['Power'] - 0.5,  # Tekst pod punktem
+                str(row_data['Index']),
+                fontsize=9,
+                ha='center',
+                va='top',  # Tekst wyrównany pod punktem
+                color='green'
+            )
+        else:  # Dla pozostałych punktów
+            plt.text(
+                row_data['FileNumber'],
+                row_data['Power'] + 0.5,  # Tekst nad punktem
+                str(row_data['Index']),
+                fontsize=9,
+                ha='center',
+                va='bottom',  # Tekst wyrównany nad punktem
+                color='green'
+            )
 
     # Ustawienia osi X
     plt.xticks(ticks=file_numbers, labels=[f"{x:.1f}" for x in custom_x_labels])
+    plt.gca().invert_xaxis()  # Odwrócenie osi X
 
-    plt.title('Maximum Power (All Patterns) and Suboptimal Power (Selected 5 Patterns)')
+    plt.title('Maximum and Minimum Power (All Patterns) and Suboptimal Power (Selected 5 Patterns)')
     plt.xlabel('Angle [°]')
     plt.ylabel('Received Power [dBm]')
-    plt.ylim(-60, -44)  # Zmieniono zakres osi Y, aby uniknąć ucinania wartości
+    plt.ylim(global_min, global_max)  # Zmieniono zakres osi Y, aby uniknąć ucinania wartości
     plt.grid(True)
     plt.legend()
 
     # Zapis wykresu
-    output_file = "Zoptymalizowany_wykres.png"
+    output_file = "zoptymalizowany_wykres.png"
     plt.savefig(output_file)
+    plt.show()
     plt.close()
     print(f"Wykres zapisany z nowymi oznaczeniami osi X: {output_file}")
 
@@ -120,5 +151,6 @@ def generate_plots(all_data, output_folder):
 # Główne wykonanie
 all_data = load_data(input_folder)
 generate_plots(all_data, output_folder)
+
 
 print("Proces generowania wykresów zakończony.")
