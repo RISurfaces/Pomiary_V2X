@@ -6,6 +6,7 @@ angle_start = -43.2
 angle_end = 43.2
 angle_step = 4.8
 radius = 2
+
 # Generate angles and coordinates
 angles = np.arange(
     np.radians(angle_start), np.radians(angle_end), np.radians(angle_step)
@@ -24,14 +25,6 @@ ax.add_artist(circle)
 # Plot the angles
 for angle, x_coord, y_coord in zip(angles, x, y):
     ax.plot([0, x_coord], [0, y_coord], "k-", lw=1)
-    ax.text(
-        x_coord * 1.1,
-        y_coord * 1.1,
-        f"{np.degrees(angle):.1f}°",
-        ha="center",
-        va="center",
-        fontsize=8,
-    )
 
 # Highlight the central angle
 center_x = np.sin(0) * radius  # Adjust for rotation
