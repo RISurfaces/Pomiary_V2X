@@ -1,0 +1,9 @@
+Schemat pomiarowy (RYS) przedstawia rzut górny scenariusza wykonywanych pomiarów. Punkty A0 - A3 zostały oznaczone urządzenia TREK 1000, które odpowiadały za wykonywanie pomiarów lokalizacji przemieszczającego się odbiornika Rx wraz z odbiornikiem Trek oznaczonym na schemacie jako A0. 
+
+Wysokość anteny odbiorczej to 0.92m a odbiornik Trek był umieszczony nad anteną na wysokości 1.00m Urządzenia A1,A2 oraz A3 umieszczone były na wysokości 1.3m, a odlełgość A1 - A3 oraz A2 - A3 to 4.24m. 
+
+Odległość anteny nadawczej Tx od RIS to 5.27m, gdzie jej wysokość sięgała 1.89m. 
+
+Punkty pomiarowe zostały rozmieszczone na obwodzie koła o promieniu 3m, z częstotliwością 4.8 stopnia. Do pomiarów przyjęto 19 punktów pomiarowych na które był przestawiany punkt odbiorczy A0, osiągając maksymalne wychylenie 43.2 stopnia w obu kierunkach od prostopadłego ustawienia A0 względem RIS. 
+
+Matryca antenowa RIS była wyniesiona na wysokość 3m, pochylona w dół o 24.4 stopnia.
