@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from io import StringIO
 
 # Dane wejściowe
 data = """
@@ -163,22 +164,61 @@ data = """
 """
 
 # Wczytanie danych
-from io import StringIO
 df = pd.read_csv(StringIO(data), sep=";", header=None, names=["Pattern", "Timestamp", "X", "Y", "Frequency", "Power_dBm"])
-df["X"]=df["X"]+0.40
-df["Y"]=df["Y"]+5.99
+df["X"] = df["X"] + 0.40
+df["Y"] = df["Y"] + 5.99
+
+# Dodatkowy zbiór danych
+xy_points = [
+    [-0.374, -5.963],
+    [-1.021, -5.99],
+    [-1.559, -6.036],
+    [-1.956, -6.036],
+    [-2.366, -5.973],
+    [-0.294, -5.698],
+    [-0.884, -5.709],
+    [-1.575, -5.76],
+    [-1.997, -5.703],
+    [-2.389, -5.62],
+    [-0.444, -5.179],
+    [-0.935, -5.199],
+    [-1.434, -5.199],
+    [-1.928, -5.181],
+    [-2.326, -5.046],
+    [-0.203, -4.663],
+    [-0.78, -4.668],
+    [-1.24, -4.656],
+    [-1.733, -4.655],
+    [-2.236, -4.666],
+    [-0.057, -4.047],
+    [-0.639, -4.059],
+    [-1.119, -4.066],
+    [-1.689, -3.997],
+    [-2.187, -3.995],
+]
+
+# Konwersja dodatkowych punktów do osobnych list
+xy_x = [x[0] + 0.40 for x in xy_points]  # Dodajemy przesunięcie jak w oryginalnych danych
+xy_y = [y[1] + 5.99 for y in xy_points]
+
 # Utworzenie wykresu
 plt.figure(figsize=(12, 8))
+
+# Scatter oryginalnych danych
 sc = plt.scatter(df["Y"], df["X"], c=df["Power_dBm"], cmap="coolwarm", s=100, alpha=0.7)
 plt.colorbar(sc, label="Moc odbierana (dBm)")
+
+# Scatter dla dodatkowego zbioru danych
+plt.scatter(xy_y, xy_x, color="black", s=50, alpha=1, marker="x", label="Punkty z średniej TREK")
+
+# Etykiety dla numeru wzorca
+for i, row in df.iterrows():
+    plt.text(row["Y"], row["X"], str(row["Pattern"]), fontsize=8, ha='right')
+
 plt.xlabel("Współrzędna Y")
 plt.ylabel("Współrzędna X")
 plt.title("Mapa mocy odbieranej na podstawie współrzędnych (X, Y)")
 plt.grid(alpha=0.3)
-
-# Dodanie etykiet numeru wzorca
-for i, row in df.iterrows():
-    plt.text(row["Y"], row["X"], str(row["Pattern"]), fontsize=8, ha='right')
-
+plt.legend()
 plt.tight_layout()
 plt.show()
