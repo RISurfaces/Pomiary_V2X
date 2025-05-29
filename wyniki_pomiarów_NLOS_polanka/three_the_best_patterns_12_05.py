@@ -6,7 +6,7 @@ import seaborn as sns
 
 # Konfiguracja
 DATA_DIR = 'wyniki_pomiarów_NLOS_polanka\V2X_12_05_25_daneRAW'
-OUTPUT_DIR = 'wyniki_pomiarów_NLOS_polanka\wykres_thebest'
+OUTPUT_DIR = 'wyniki_pomiarów_NLOS_polanka\wykresy_magisterka_25'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Wymiary siatki heatmapy
@@ -15,7 +15,7 @@ GRID_SIZE = (5, 5)
 # Funkcja do generowania heatmapy
 def generate_heatmap(data, annotations, filename, vmin, vmax):
     plt.figure(figsize=(6, 5))
-    ax = sns.heatmap(data, annot=annotations, fmt='', cmap='Spectral', cbar=True, square=True, vmin=vmin, vmax=vmax)
+    ax = sns.heatmap(data, annot=annotations, fmt='', cmap='Spectral_r', cbar=True, square=True, vmin=vmin, vmax=vmax)
     cbar = ax.collections[0].colorbar
     cbar.set_label('dBm')
     plt.title(f'Heatmap - Najlepsze Wzorce')
@@ -49,7 +49,7 @@ def main():
     # Wypełnianie danych i anotacji
     for file_num in range(1, 26):  # Dla każdego punktu w siatce
         all_point_values = {pat: all_data[pat][file_num] for pat in all_data if not np.isnan(all_data[pat][file_num])}
-        top_patterns = sorted(all_point_values, key=all_point_values.get, reverse=True)[:3]
+        top_patterns = sorted(all_point_values, key=all_point_values.get, reverse=True)[:1]
         
         # Ustalamy pozycję w siatce (plik nr 1 ma trafić do (0,0))
         row, col = divmod(file_num - 1, GRID_SIZE[1])

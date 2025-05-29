@@ -6,7 +6,7 @@ import seaborn as sns
 
 # Konfiguracja
 DATA_DIR = 'wyniki_pomiarów_NLOS_polanka\V2X_12_05_25_daneRAW'
-OUTPUT_DIR = 'wyniki_pomiarów_NLOS_polanka\wykresy_V2X_12_05_25'
+OUTPUT_DIR = 'wyniki_pomiarów_NLOS_polanka\wykresy_magisterka_25'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Wymiary siatki heatmapy
@@ -15,7 +15,7 @@ GRID_SIZE = (5, 5)
 # Funkcja do generowania heatmapy
 def generate_heatmap(data, pat_num, vmin, vmax):
     plt.figure(figsize=(6, 5))
-    ax = sns.heatmap(data, annot=True, fmt='.2f', cmap='Spectral', cbar=True, square=True, vmin=vmin, vmax=vmax)
+    ax = sns.heatmap(data, annot=True, fmt='.2f', cmap='Spectral_r', cbar=True, square=True, vmin=vmin, vmax=vmax)
     cbar = ax.collections[0].colorbar
     cbar.set_label('[dBm]')
     plt.title(f'Heatmap pattern {pat_num}')
