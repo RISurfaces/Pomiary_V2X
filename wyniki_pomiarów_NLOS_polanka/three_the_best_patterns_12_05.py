@@ -9,6 +9,11 @@ DATA_DIR = 'wyniki_pomiarów_NLOS_polanka\V2X_12_05_25_daneRAW'
 OUTPUT_DIR = 'wyniki_pomiarów_NLOS_polanka\wykresy_magisterka_25'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+plt.rcParams['font.family'] = 'Times New Roman'
+plt.rcParams['font.size'] = 14
+plt.rcParams['axes.labelweight'] = 'bold'
+plt.rcParams['axes.titleweight'] = 'bold'
+
 # Wymiary siatki heatmapy
 GRID_SIZE = (5, 5)
 
@@ -17,7 +22,7 @@ def generate_heatmap(data, annotations, filename, vmin, vmax):
     plt.figure(figsize=(6, 5))
     ax = sns.heatmap(data, annot=annotations, fmt='', cmap='Spectral_r', cbar=True, square=True, vmin=vmin, vmax=vmax)
     cbar = ax.collections[0].colorbar
-    cbar.set_label('dBm')
+    cbar.set_label('[dBm]')
     plt.title(f'Heatmap - Najlepsze Wzorce')
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, f'{filename}.png'))

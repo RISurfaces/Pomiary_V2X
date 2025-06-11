@@ -158,7 +158,7 @@ xy_y = np.abs(xy_y)
 plt.figure(figsize=(12, 8))
 
 # Scatter oryginalnych danych
-sc = plt.scatter(df["X"], df["Y"], c=df["Power_dBm"], cmap="coolwarm", s=100, alpha=0.7)
+sc = plt.scatter(df["X"], df["Y"], c=df["Power_dBm"], cmap="coolwarm", s=100, alpha=0.7, vmin=-119.2, vmax=-76.95)
 plt.colorbar(sc, label="Moc odbierana (dBm)")
 
 # Scatter dla dodatkowego zbioru danych
